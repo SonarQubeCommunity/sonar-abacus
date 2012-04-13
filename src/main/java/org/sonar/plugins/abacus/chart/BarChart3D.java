@@ -44,7 +44,6 @@ public class BarChart3D extends AbstractChart {
   public static final String PARAM_X_SUFFIX = "xsuf";
   public static final String PARAM_FONT_SIZE = "fs";
 
-  @Override
   public String getKey() {
     return "barChart3D";
   }

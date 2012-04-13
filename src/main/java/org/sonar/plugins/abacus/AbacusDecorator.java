@@ -43,8 +43,6 @@ import java.util.List;
 
 public class AbacusDecorator implements Decorator {
 
-  public static final Logger LOGGER = LoggerFactory.getLogger(AbacusDecorator.class.getName());
-
   private List<ComplexityThreshold> complexityThresholds;
 
   @DependsUpon
@@ -57,14 +55,12 @@ public class AbacusDecorator implements Decorator {
     return Arrays.asList(AbacusMetrics.ABACUS_COMPLEXITY, AbacusMetrics.ABACUS_COMPLEXITY_DISTRIBUTION);
   }
 
-  @Override
   public boolean shouldExecuteOnProject(Project project) {
     this.complexityThresholds = new ArrayList<ComplexityThreshold>();
     initAbacus(project.getConfiguration());
     return true;
   }
 
-  @Override
   public void decorate(Resource rsrc, DecoratorContext dc) {
     computeAbacusComplexity(rsrc, dc);
     computeAbacusComplexityDistribution(rsrc, dc);
