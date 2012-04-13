@@ -19,11 +19,7 @@
  */
 package org.sonar.plugins.abacus;
 
-import org.sonar.plugins.abacus.utils.ComplexityThreshold;
-
 import org.apache.commons.configuration.Configuration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Decorator;
 import org.sonar.api.batch.DecoratorContext;
 import org.sonar.api.batch.DependedUpon;
@@ -35,9 +31,9 @@ import org.sonar.api.measures.Metric;
 import org.sonar.api.resources.Project;
 import org.sonar.api.resources.Resource;
 import org.sonar.api.resources.ResourceUtils;
+import org.sonar.plugins.abacus.utils.ComplexityThreshold;
 import org.sonar.plugins.abacus.utils.ComplexityThresholdsUtils;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -56,7 +52,6 @@ public final class AbacusDecorator implements Decorator {
   }
 
   public boolean shouldExecuteOnProject(Project project) {
-    this.complexityThresholds = new ArrayList<ComplexityThreshold>();
     initAbacus(project.getConfiguration());
     return true;
   }
