@@ -41,7 +41,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class AbacusDecorator implements Decorator {
+public final class AbacusDecorator implements Decorator {
 
   private List<ComplexityThreshold> complexityThresholds;
 
@@ -104,8 +104,8 @@ public class AbacusDecorator implements Decorator {
       ComplexityThresholdsUtils.initCounterThreshold(complexityThresholds);
       for (Measure measure : dc.getChildrenMeasures(AbacusMetrics.ABACUS_COMPLEXITY_DISTRIBUTION)) {
         String[] distribution = measure.getData().split(";");
-        for (int i = 0; i < distribution.length; i++) {
-          String[] tmp = distribution[i].split("=");
+        for (String aDistribution : distribution) {
+          String[] tmp = aDistribution.split("=");
           for (ComplexityThreshold complexityThreshold : complexityThresholds) {
             if (tmp[0].equals(complexityThreshold.getComplexityName())) {
               complexityThreshold.incrementCounter(Integer.parseInt(tmp[1]));

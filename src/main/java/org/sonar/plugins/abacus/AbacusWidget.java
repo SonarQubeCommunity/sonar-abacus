@@ -29,7 +29,7 @@ import org.sonar.api.web.*;
   @WidgetProperty(key = "defaultDisplay", type = WidgetPropertyType.STRING, defaultValue = "files"),
   @WidgetProperty(key = "defaultColors", type = WidgetPropertyType.STRING, defaultValue = "33cc33,ffff33,ff9900,ff0033,000000")
 })
-public class AbacusWidget extends AbstractRubyTemplate implements RubyRailsWidget {
+public final class AbacusWidget extends AbstractRubyTemplate implements RubyRailsWidget {
 
   public String getId() {
     return "abacus";

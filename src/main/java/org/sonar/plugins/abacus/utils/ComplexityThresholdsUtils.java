@@ -28,7 +28,7 @@ public class ComplexityThresholdsUtils {
   private static final String PARSING_SEPARATOR = ":";
   private static final String EQUALITY_SEPARATOR = "=";
 
-  public static final List<ComplexityThreshold> convertAbacusThresholdsToComplexityThresholds(String[] propertyThresholds) {
+  public static List<ComplexityThreshold> convertAbacusThresholdsToComplexityThresholds(String[] propertyThresholds) {
 
     List<ComplexityThreshold> complexityThresholds = new ArrayList<ComplexityThreshold>();
     String[] temp;
@@ -45,7 +45,7 @@ public class ComplexityThresholdsUtils {
     return complexityThresholds;
   }
 
-  public static final String convertCyclomaticComplexityToAbacusComplexity(Double cyclomaticComplexity, List<ComplexityThreshold> complexityThresholds) {
+  public static String convertCyclomaticComplexityToAbacusComplexity(Double cyclomaticComplexity, List<ComplexityThreshold> complexityThresholds) {
 
     String complexity = null;
 
@@ -63,13 +63,13 @@ public class ComplexityThresholdsUtils {
     return complexity;
   }
 
-  public static final void initCounterThreshold(List<ComplexityThreshold> complexityThresholds) {
+  public static void initCounterThreshold(List<ComplexityThreshold> complexityThresholds) {
     for (ComplexityThreshold complexityThreshold : complexityThresholds) {
       complexityThreshold.initializeCounter();
     }
   }
 
-  public static final String buildComplexityDistributionMeasureValue(List<ComplexityThreshold> complexityThresholds) {
+  public static String buildComplexityDistributionMeasureValue(List<ComplexityThreshold> complexityThresholds) {
     String complexityDistributionMeasureValue = "";
     for (Iterator<ComplexityThreshold> it = complexityThresholds.iterator(); it.hasNext();) {
       ComplexityThreshold complexityThreshold = it.next();

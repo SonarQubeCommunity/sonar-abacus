@@ -24,7 +24,7 @@ import org.sonar.api.measures.Metric;
 import java.util.List;
 import java.util.Arrays;
 
-public class AbacusMetrics implements Metrics {
+public final class AbacusMetrics implements Metrics {
 
   public static final Metric ABACUS_COMPLEXITY = new Metric.Builder("abacus-complexity", "Abacus complexity", Metric.ValueType.STRING)
       .setDescription("Abacus complexity")
