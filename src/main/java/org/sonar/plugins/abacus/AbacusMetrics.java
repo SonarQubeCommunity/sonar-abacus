@@ -19,23 +19,26 @@
  */
 package org.sonar.plugins.abacus;
 
-import org.sonar.api.measures.Metrics;
 import org.sonar.api.measures.Metric;
-import java.util.List;
+import org.sonar.api.measures.Metrics;
+
 import java.util.Arrays;
+import java.util.List;
 
 public final class AbacusMetrics implements Metrics {
+
+  private static final String ABACUS_DOMAIN = "Abacus";
 
   public static final Metric ABACUS_COMPLEXITY = new Metric.Builder("abacus-complexity", "Abacus complexity", Metric.ValueType.STRING)
       .setDescription("Abacus complexity")
       .setQualitative(false)
-      .setDomain("Abacus")
+      .setDomain(ABACUS_DOMAIN)
       .create();
 
   public static final Metric ABACUS_COMPLEXITY_DISTRIBUTION = new Metric.Builder("abacus-complexity-distribution", "Abacus complexity distribution", Metric.ValueType.DISTRIB)
       .setDescription("Abacus complexity distribution")
       .setQualitative(false)
-      .setDomain("Abacus")
+      .setDomain(ABACUS_DOMAIN)
       .create();
 
   public List<Metric> getMetrics() {
