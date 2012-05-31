@@ -37,7 +37,7 @@ public class AbacusPlugin extends SonarPlugin {
   public static final String ABACUS_COMPLEXITY_THRESHOLDS = "sonar.abacus.complexityThresholds";
 
   public List getExtensions() {
-    return Arrays.asList(AbacusMetrics.class, AbacusDecorator.class, AbacusWidget.class, PieChart3D.class, BarChart3D.class);
+    return Arrays.asList(AbacusMetrics.class, AbacusDecorator.class, AbacusWidget.class, AbacusTab.class, PieChart3D.class, BarChart3D.class);
   }
 
 }

@@ -40,7 +40,7 @@ import static org.mockito.Mockito.when;
 
 public class AbacusDecoratorTest {
 
-  private final static String[] defautAbacusThresholds = new String[] {"Simple:10", "Medium:30", "Complex:60", "Very complex"};
+  private final static String[] defautAbacusThresholds = new String[] {"Simple:20", "Medium:50", "Complex:100", "Very complex"};
   private final Project myProject = new Project("myProject");
   private final DecoratorContext dc = mock(DecoratorContext.class);
   private final AbacusDecorator abacusDecorator = new AbacusDecorator();
@@ -59,11 +59,11 @@ public class AbacusDecoratorTest {
     abacusDecorator.decorate(new File("simpleFile"), dc);
     verify(dc).saveMeasure(argThat(new IsMeasure(AbacusMetrics.ABACUS_COMPLEXITY, "Simple")));
 
-    when(dc.getMeasure(CoreMetrics.FILE_COMPLEXITY)).thenReturn(new Measure(CoreMetrics.FILE_COMPLEXITY, 30.0));
+    when(dc.getMeasure(CoreMetrics.FILE_COMPLEXITY)).thenReturn(new Measure(CoreMetrics.FILE_COMPLEXITY, 50.0));
     abacusDecorator.decorate(new File("simpleFile"), dc);
     verify(dc).saveMeasure(argThat(new IsMeasure(AbacusMetrics.ABACUS_COMPLEXITY, "Medium")));
 
-    when(dc.getMeasure(CoreMetrics.FILE_COMPLEXITY)).thenReturn(new Measure(CoreMetrics.FILE_COMPLEXITY, 30.5));
+    when(dc.getMeasure(CoreMetrics.FILE_COMPLEXITY)).thenReturn(new Measure(CoreMetrics.FILE_COMPLEXITY, 50.5));
     abacusDecorator.decorate(new File("simpleFile"), dc);
     verify(dc).saveMeasure(argThat(new IsMeasure(AbacusMetrics.ABACUS_COMPLEXITY, "Complex")));
 
@@ -80,11 +80,11 @@ public class AbacusDecoratorTest {
     abacusDecorator.decorate(myProject, dc);
     verify(dc).saveMeasure(argThat(new IsMeasure(AbacusMetrics.ABACUS_COMPLEXITY, "Simple")));
 
-    when(dc.getMeasure(CoreMetrics.FILE_COMPLEXITY)).thenReturn(new Measure(CoreMetrics.FILE_COMPLEXITY, 30.0));
+    when(dc.getMeasure(CoreMetrics.FILE_COMPLEXITY)).thenReturn(new Measure(CoreMetrics.FILE_COMPLEXITY, 50.0));
     abacusDecorator.decorate(myProject, dc);
     verify(dc).saveMeasure(argThat(new IsMeasure(AbacusMetrics.ABACUS_COMPLEXITY, "Medium")));
 
-    when(dc.getMeasure(CoreMetrics.FILE_COMPLEXITY)).thenReturn(new Measure(CoreMetrics.FILE_COMPLEXITY, 30.5));
+    when(dc.getMeasure(CoreMetrics.FILE_COMPLEXITY)).thenReturn(new Measure(CoreMetrics.FILE_COMPLEXITY, 50.5));
     abacusDecorator.decorate(myProject, dc);
     verify(dc).saveMeasure(argThat(new IsMeasure(AbacusMetrics.ABACUS_COMPLEXITY, "Complex")));
 

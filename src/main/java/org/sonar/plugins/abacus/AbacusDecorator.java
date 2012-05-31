@@ -66,7 +66,7 @@ public final class AbacusDecorator implements Decorator {
     String[] abacusList = configuration.getStringArray(AbacusPlugin.ABACUS_COMPLEXITY_THRESHOLDS);
 
     if (abacusList == null || abacusList.length == 0) {
-      abacusList = new String[] {"Simple:10", "Medium:30", "Complex:60", "Very complex"};
+      abacusList = new String[] {"Simple:20", "Medium:50", "Complex:100", "Very complex"};
     }
 
     complexityThresholds = ComplexityThresholdsUtils.convertAbacusThresholdsToComplexityThresholds(abacusList);
