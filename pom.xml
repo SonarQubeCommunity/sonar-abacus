@@ -11,7 +11,7 @@
 
   <artifactId>sonar-abacus-plugin</artifactId>
   <packaging>sonar-plugin</packaging>
-  <version>0.1-SNAPSHOT</version>
+  <version>0.1</version>
   <name>Sonar Abacus Plugin</name>
   <description>This plugin helps you use your abacus</description>
   <url>http://docs.codehaus.org/display/SONAR/Abacus+plugin</url>
@@ -43,9 +43,9 @@
     <url>http://bamboo.ci.codehaus.org/browse/SONAR-ABACUS/</url>
   </ciManagement>
   <scm>
-    <connection>scm:svn:http://svn.codehaus.org/sonar-plugins/trunk/abacus</connection>
-    <developerConnection>scm:svn:https://svn.codehaus.org/sonar-plugins/trunk/abacus</developerConnection>
-    <url>http://svn.sonar-plugins.codehaus.org</url>
+    <connection>scm:svn:http://svn.codehaus.org/sonar-plugins/tags/sonar-abacus-plugin-0.1</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/sonar-plugins/tags/sonar-abacus-plugin-0.1</developerConnection>
+    <url>scm:svn:https://svn.codehaus.org/sonar-plugins/tags/sonar-abacus-plugin-0.1</url>
   </scm>
 
   <properties>
