@@ -19,10 +19,11 @@
  */
 package org.sonar.plugins.abacus;
 
-import org.apache.commons.configuration.Configuration;
 import org.junit.Before;
 import org.junit.Test;
 import org.sonar.api.batch.DecoratorContext;
+import org.sonar.api.config.PropertyDefinitions;
+import org.sonar.api.config.Settings;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.resources.Directory;
@@ -40,15 +41,14 @@ import static org.mockito.Mockito.when;
 
 public class AbacusDecoratorTest {
 
-  private final static String[] defautAbacusThresholds = new String[] {"Simple:20", "Medium:50", "Complex:100", "Very complex"};
   private final Project myProject = new Project("myProject");
   private final DecoratorContext dc = mock(DecoratorContext.class);
-  private final AbacusDecorator abacusDecorator = new AbacusDecorator();
+  private AbacusDecorator abacusDecorator;
 
   @Before
   public void initAbacusComplexityThresholds() {
-    myProject.setConfiguration(mock(Configuration.class));
-    when(myProject.getConfiguration().getStringArray(AbacusPlugin.ABACUS_COMPLEXITY_THRESHOLDS)).thenReturn(defautAbacusThresholds);
+    Settings settings = new Settings(new PropertyDefinitions(AbacusPlugin.class));
+    abacusDecorator = new AbacusDecorator(settings);
     abacusDecorator.shouldExecuteOnProject(myProject);
   }
 

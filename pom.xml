@@ -50,7 +50,7 @@
 
   <properties>
     <license.owner>David FRANCOIS and David RACODON</license.owner>
-    <sonar.version>2.11</sonar.version>
+    <sonar.version>3.0</sonar.version>
     <sonar.pluginName>Abacus</sonar.pluginName>
     <sonar.pluginClass>org.sonar.plugins.abacus.AbacusPlugin</sonar.pluginClass>
   </properties>

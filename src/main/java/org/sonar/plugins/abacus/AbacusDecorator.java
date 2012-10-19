@@ -19,11 +19,11 @@
  */
 package org.sonar.plugins.abacus;
 
-import org.apache.commons.configuration.Configuration;
 import org.sonar.api.batch.Decorator;
 import org.sonar.api.batch.DecoratorContext;
 import org.sonar.api.batch.DependedUpon;
 import org.sonar.api.batch.DependsUpon;
+import org.sonar.api.config.Settings;
 import org.sonar.api.measures.CoreMetrics;
 import org.sonar.api.measures.Measure;
 import org.sonar.api.measures.MeasureUtils;
@@ -40,6 +40,11 @@ import java.util.List;
 public final class AbacusDecorator implements Decorator {
 
   private List<ComplexityThreshold> complexityThresholds;
+  private Settings settings;
+
+  public AbacusDecorator(Settings settings) {
+    this.settings = settings;
+  }
 
   @DependsUpon
   public List<Metric> dependsOn() {
@@ -52,7 +57,7 @@ public final class AbacusDecorator implements Decorator {
   }
 
   public boolean shouldExecuteOnProject(Project project) {
-    initAbacus(project.getConfiguration());
+    initAbacus();
     return true;
   }
 
@@ -61,14 +66,8 @@ public final class AbacusDecorator implements Decorator {
     computeAbacusComplexityDistribution(rsrc, dc);
   }
 
-  private void initAbacus(Configuration configuration) {
-
-    String[] abacusList = configuration.getStringArray(AbacusPlugin.ABACUS_COMPLEXITY_THRESHOLDS);
-
-    if (abacusList == null || abacusList.length == 0) {
-      abacusList = new String[] {"Simple:20", "Medium:50", "Complex:100", "Very complex"};
-    }
-
+  private void initAbacus() {
+    String[] abacusList = settings.getStringArray(AbacusPlugin.ABACUS_COMPLEXITY_THRESHOLDS);
     complexityThresholds = ComplexityThresholdsUtils.convertAbacusThresholdsToComplexityThresholds(abacusList);
   }
 

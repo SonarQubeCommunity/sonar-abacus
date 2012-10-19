@@ -19,18 +19,20 @@
  */
 package org.sonar.plugins.abacus;
 
-import org.sonar.plugins.abacus.chart.PieChart3D;
-import org.sonar.plugins.abacus.chart.BarChart3D;
-import org.sonar.api.SonarPlugin;
-import java.util.Arrays;
-import java.util.List;
 import org.sonar.api.Properties;
 import org.sonar.api.Property;
+import org.sonar.api.SonarPlugin;
+import org.sonar.plugins.abacus.chart.BarChart3D;
+import org.sonar.plugins.abacus.chart.PieChart3D;
+
+import java.util.Arrays;
+import java.util.List;
 
 @Properties({
   @Property(key = AbacusPlugin.ABACUS_COMPLEXITY_THRESHOLDS,
     name = "Abacus complexity thresholds",
-    global = true, project = true, module = false)
+    global = true, project = true, module = false,
+    defaultValue = "Simple:20, Medium:50, Complex:100, Very complex")
 })
 public class AbacusPlugin extends SonarPlugin {
 
