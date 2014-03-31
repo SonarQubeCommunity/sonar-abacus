@@ -43,9 +43,9 @@
     <url>http://bamboo.ci.codehaus.org/browse/SONAR-ABACUS/</url>
   </ciManagement>
   <scm>
-    <connection>scm:svn:http://svn.codehaus.org/sonar-plugins/trunk/abacus</connection>
-    <developerConnection>scm:svn:https://svn.codehaus.org/sonar-plugins/trunk/abacus</developerConnection>
-    <url>http://svn.sonar-plugins.codehaus.org</url>
+    <connection>scm:git:git@github.com:SonarCommunity/sonar-abacus.git</connection>
+    <developerConnection>scm:git:git@github.com:SonarCommunity/sonar-abacus.git</developerConnection>
+    <url>https://github.com/SonarCommunity/sonar-abacus</url>
   </scm>
 
   <properties>
