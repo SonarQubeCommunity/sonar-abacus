@@ -42,14 +42,14 @@
 
 <script language="javascript">
     function displayDistribution(type) {
-      $$('#abacus_div_chart .abacus_chart').each(function(idx, chart) {
+      $j('#abacus_div_chart .abacus_chart').each(function(idx, chart) {
         $j(chart).hide();
       });
-      $$('#abacus_div_distribution .abacus_distribution').each(function(idx, distribution) {
+      $j('#abacus_div_distribution .abacus_distribution').each(function(idx, distribution) {
         $j(distribution).hide();
       });
-      $('abacus_div_chart_' + type).show();
-      $('abacus_div_distribution_' + type).show();
+      $j('abacus_div_chart_' + type).show();
+      $j('abacus_div_distribution_' + type).show();
     }
 </script>
 
